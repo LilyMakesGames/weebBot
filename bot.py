@@ -75,5 +75,4 @@ async def on_member_join(member):
     role = discord.utils.get(member.server.roles, name='Apprentice')
     await client.add_roles(member, role)
 
-client.run('NDkzODc3MTIzNTU2MTc5OTg5.DorX7w.Q4nJBDz2UzUm9FvGJtZpSN4U-AY')
-#client.run(os.environ['BOT_TOKEN'])
+client.run(os.environ['BOT_TOKEN'])
