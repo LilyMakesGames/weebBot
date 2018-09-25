@@ -1,6 +1,7 @@
 import discord
 from discord.ext.commands import Bot
 from discord.ext import commands
+import os
 import asyncio
 import time
 import random
@@ -8,7 +9,6 @@ import random
 Client = discord.Client()
 client = commands.Bot(command_prefix = "")
 
-api = str(os.environ.get('RIOT_KEY'))
 
 @client.event
 async def on_ready():
@@ -27,4 +27,4 @@ async def on_message(message):
 
 
 
-client.run(os.environ.get(os.environ.get('BOT_TOKEN')))
+client.run(os.environ.get['BOT_TOKEN'])
