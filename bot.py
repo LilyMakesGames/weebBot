@@ -8,6 +8,8 @@ import random
 Client = discord.Client()
 client = commands.Bot(command_prefix = "")
 
+api = str(os.environ.get('RIOT_KEY'))
+
 @client.event
 async def on_ready():
     print("Bot is Ready")
@@ -24,4 +26,5 @@ async def on_message(message):
 
 
 
-client.run("NDkzODc3MTIzNTU2MTc5OTg5.DorX7w.Q4nJBDz2UzUm9FvGJtZpSN4U-AY")
+
+client.run(os.environ.get(os.environ.get('BOT_TOKEN')))
