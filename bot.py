@@ -48,7 +48,7 @@ async def giveRole(ctx, roleName):
             await client.add_roles(ctx.message.author, role)
             embed = discord.Embed()
             embed.description = 'You are now a ' + roleN
-            client.say(embed = embed)
+            await client.say(embed = embed)
 
 
 @client.command(pass_context = True)
