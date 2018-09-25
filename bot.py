@@ -22,8 +22,12 @@ async def on_ready():
 @client.command(pass_context = True)
 async def roles(ctx):
     server = client.get_server('493970833799249930')
-    for r in server.roles:
-        print(r)
+
+async def clear(ctx, amount = 100):
+    messages = []
+    channel = ctx.message.channel
+    async for message in client.logs_from(channel, limit = int(amount)):
+        await client.delete_channel(messages)
 
 @client.event
 async def on_message(message):
