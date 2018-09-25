@@ -15,9 +15,8 @@ async def on_ready():
     print("Bot is Ready")
 
 
-@client.command()
-async def ping():
-    await client.say('Pong')
+#@client.command(pass_context = True)
+#async def clear
 
     
 @client.event
@@ -32,5 +31,4 @@ async def on_message(message):
     await client.process_commands(message)
 
 
-#client.run('NDkzODc3MTIzNTU2MTc5OTg5.DorX7w.Q4nJBDz2UzUm9FvGJtZpSN4U-AY')
 client.run(os.environ['BOT_TOKEN'])
