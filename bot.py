@@ -22,6 +22,17 @@ async def on_ready():
 @client.command(pass_context = True)
 async def roles(ctx):
     server = client.get_server('493970833799249930')
+    roles = {}
+    for role in server.roles:
+        roles += role.name
+    embed = discord.Embed(
+        title = 'Roles:',
+        description = roles,
+        colour = discord.Colour.blue()     
+    )
+    client.say(embed = embed)
+
+
 
 @client.command
 async def clear(ctx, amount = 100):
