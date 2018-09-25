@@ -13,20 +13,42 @@ client = commands.Bot(command_prefix='!')
 server = discord.Server
 
 
+
 @client.event
 async def on_ready():
     await client.change_presence(game= discord.Game(name = 'with my heart'))
     print("Bot is Ready")
 
 
-@client.command(pass_context = True)
-async def roles(ctx):
+@client.command()
+async def roles():
     server = client.get_server('493970833799249930')
+    message = ''
     roles = []
     for role in server.roles:
-        roles.append(role.name)
-    client.say(roles)
-    print(roles)
+        if role.name != 'Admin' and role.name != '@everyone' and role.name != 'Bot':
+            roles.append(role.name)
+    for name in roles:
+        message += name
+        message += '\n'
+    embed = discord.Embed()
+    embed.description = message
+    await client.say(embed = embed)
+
+@client.command(pass_context = True)
+async def giveRole(ctx, roleName):
+    roles = []
+    server = client.get_server('493970833799249930')
+    for role in server.roles:
+        if role.name != 'Admin' and role.name != '@everyone' and role.name != 'Bot':
+            roles.append(role.name)
+    for roleN in roles:
+        if roleName == roleN:
+            role = discord.utils.get(server.roles, name = roleN)
+            await client.add_roles(ctx.message.author, role)
+            embed = discord.Embed()
+            embed.description = 'You are now a ' + roleN
+            client.say(embed = embed)
 
 
 @client.command(pass_context = True)
