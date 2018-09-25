@@ -22,24 +22,20 @@ async def on_ready():
 @client.command(pass_context = True)
 async def roles(ctx):
     server = client.get_server('493970833799249930')
-    roles = {}
+    roles = []
     for role in server.roles:
-        roles += role.name
-    embed = discord.Embed(
-        title = 'Roles:',
-        description = roles,
-        colour = discord.Colour.blue()     
-    )
-    client.say(embed = embed)
+        roles.append(role.name)
+    client.say(roles)
+    print(roles)
 
 
-
-@client.command
+@client.command(pass_context = True)
 async def clear(ctx, amount = 100):
     messages = []
     channel = ctx.message.channel
     async for message in client.logs_from(channel, limit = int(amount)):
-        await client.delete_channel(messages)
+        messages.append(message)
+    await client.delete_messages(messages)
 
 @client.event
 async def on_message(message):
@@ -57,4 +53,5 @@ async def on_member_join(member):
     role = discord.utils.get(member.server.roles, name='Apprentice')
     await client.add_roles(member, role)
 
-client.run(os.environ['BOT_TOKEN'])
+client.run('NDkzODc3MTIzNTU2MTc5OTg5.DorX7w.Q4nJBDz2UzUm9FvGJtZpSN4U-AY')
+#client.run(os.environ['BOT_TOKEN'])
