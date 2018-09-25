@@ -24,7 +24,9 @@ async def on_message(message):
     if message.content.upper() == "YUN TIME":
         await client.send_message(message.channel,"yun yun yun yun yun",tts = True)
 
-
+@client.command()
+async def ping():
+    await client.say("Pong!")
 
 
 client.run(os.environ['BOT_TOKEN'])
