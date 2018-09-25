@@ -7,7 +7,7 @@ import time
 import random
 
 Client = discord.Client()
-client = commands.Bot(command_prefix = '!')
+client = commands.Bot(command_prefix='!')
 
 
 @client.event
@@ -25,8 +25,8 @@ async def on_message(message):
         await client.send_message(message.channel,"yun yun yun yun yun",tts = True)
 
 @client.command()
-async def ping():
-    await client.say('Pong')
+async def ping(ctx):
+    await ctx.say('Pong')
 
 
 #client.run('NDkzODc3MTIzNTU2MTc5OTg5.DorX7w.Q4nJBDz2UzUm9FvGJtZpSN4U-AY')
