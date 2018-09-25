@@ -27,4 +27,4 @@ async def on_message(message):
 
 
 
-client.run(os.environ.get['BOT_TOKEN'])
+client.run(os.environ['BOT_TOKEN'])
