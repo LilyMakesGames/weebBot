@@ -15,6 +15,7 @@ server = discord.Server
 
 @client.event
 async def on_ready():
+    await client.change_presence(game= discord.Game(name = 'with my heart'))
     print("Bot is Ready")
 
 
@@ -23,7 +24,7 @@ async def roles(ctx):
     server = client.get_server('493970833799249930')
     for r in server.roles:
         print(r)
-    
+
 @client.event
 async def on_message(message):
     if message.content.upper() == "MEGUMIN, CAST A SPELL!":
