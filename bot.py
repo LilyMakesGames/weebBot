@@ -23,6 +23,7 @@ async def on_ready():
 async def roles(ctx):
     server = client.get_server('493970833799249930')
 
+@client.command
 async def clear(ctx, amount = 100):
     messages = []
     channel = ctx.message.channel
