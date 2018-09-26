@@ -60,7 +60,7 @@ async def ajuda(ctx):
     embed.set_author(name='Help')
 
     embed.add_field(name='!clubes', value='Mostra lista de clubes disponíveis', inline=False)
-    embed.add_field(name='!inscrever <<Nome do Clube>>', value='Se inscreve no clube, podendo acessar o canal do discord do clube', inline=False)
+    embed.add_field(name='!inscrever <<Nome do Clube>>', value='Se inscreve no clube, podendo acessar o canal do discord do clube. Este comando não pode ser executado em mensagem privada', inline=False)
 
     await client.send_message(author,embed = embed)
 
