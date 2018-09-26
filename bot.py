@@ -80,6 +80,6 @@ async def on_member_join(member):
 
     embed.add_field(name='Seja Bem-vindo(a)!', value='Caso queira saber os comandos do bot, digite !ajuda', inline=False)
 
-    await client.send_message(member.user, embed = embed)
+    await client.send_message(member, embed = embed)
 
 client.run(os.environ['BOT_TOKEN'])
