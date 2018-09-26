@@ -11,6 +11,7 @@ import random
 #Client = discord.Client()
 client = commands.Bot(command_prefix='!')
 server = discord.Server
+client.remove_command('help')
 
 
 
@@ -21,7 +22,7 @@ async def on_ready():
 
 
 @client.command()
-async def roles():
+async def clubes():
     server = client.get_server('493970833799249930')
     message = ''
     roles = []
@@ -36,7 +37,7 @@ async def roles():
     await client.say(embed = embed)
 
 @client.command(pass_context = True)
-async def giveRole(ctx, roleName):
+async def inscrever(ctx, roleName):
     roles = []
     server = client.get_server('493970833799249930')
     for role in server.roles:
@@ -50,6 +51,18 @@ async def giveRole(ctx, roleName):
             embed.description = 'You are now a ' + roleN
             await client.say(embed = embed)
 
+@client.command(pass_context = True)
+async def ajuda(ctx):
+    author = ctx.message.author
+
+    embed = discord.Embed()
+
+    embed.set_author(name='Help')
+    
+    embed.add_field(name='!clubes', value='Mostra lista de clubes disponíveis', inline=False)
+    embed.add_field(name='!inscrever <<Nome do Clube>>', value='Se inscreve no clube, podendo acessar o canal do discord do clube', inline=False)
+
+    await client.send_message(author,embed = embed)
 
 @client.command(pass_context = True)
 async def clear(ctx, amount = 100):
