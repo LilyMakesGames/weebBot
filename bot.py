@@ -78,8 +78,7 @@ async def clear(ctx, amount = 100):
 async def on_member_join(member):
     embed = discord.Embed()
 
-    embed.set_author(name='Seja Bem-vindo(a)')
-    embed.description('Caso queira saber os comandos do bot, digite !ajuda')
+    embed.add_field(name='Seja Bem-vindo(a)!', value='Caso queira saber os comandos do bot, digite !ajuda', inline=False)
 
     await client.send_message(member.user, embed = embed)
 
