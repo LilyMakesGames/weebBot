@@ -58,7 +58,7 @@ async def ajuda(ctx):
     embed = discord.Embed()
 
     embed.set_author(name='Help')
-    
+
     embed.add_field(name='!clubes', value='Mostra lista de clubes disponíveis', inline=False)
     embed.add_field(name='!inscrever <<Nome do Clube>>', value='Se inscreve no clube, podendo acessar o canal do discord do clube', inline=False)
 
@@ -66,26 +66,21 @@ async def ajuda(ctx):
 
 @client.command(pass_context = True)
 async def clear(ctx, amount = 100):
-    messages = []
-    channel = ctx.message.channel
-    async for message in client.logs_from(channel, limit = int(amount)):
-        messages.append(message)
-    await client.delete_messages(messages)
-
-@client.event
-async def on_message(message):
-    if message.content.upper() == "MEGUMIN, CAST A SPELL!":
-        explosionImg = "https://cgtranslations321782266.files.wordpress.com/2018/03/megumin_kono_subarashii_sekai_ni_shukufuku_wo_and_uchi_no_hime_sama_ga_ichiban_kawaii__cafe24e947a0ff3592f2f13f96b81449.png"
-        embed = discord.Embed()
-        embed.set_image(url = explosionImg)
-        await client.send_message(message.channel,"EXPLOOOOOOOOOOOOOOOOSION", embed = embed)
-    if message.content.upper() == "YUN TIME":
-        await client.send_message(message.channel,"yun yun yun yun yun",tts = True)
-    await client.process_commands(message)
+    for role in ctx.message.author.roles:
+        if role.name == 'Admin':
+            messages = []
+            channel = ctx.message.channel
+            async for message in client.logs_from(channel, limit = int(amount)):
+                messages.append(message)
+            await client.delete_messages(messages)
     
 @client.event
 async def on_member_join(member):
-    role = discord.utils.get(member.server.roles, name='Apprentice')
-    await client.add_roles(member, role)
+    embed = discord.Embed()
+
+    embed.set_author(name='Seja Bem-vindo(a)')
+    embed.description('Caso queira saber os comandos do bot, digite !ajuda')
+
+    await client.send_message(member, embed = embed)
 
 client.run(os.environ['BOT_TOKEN'])
