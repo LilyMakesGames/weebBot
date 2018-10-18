@@ -39,10 +39,7 @@ async def clubes():
 @client.command(pass_context = True)
 async def inscrever(ctx, *roleName):
     roles = []
-    finalRole = ""
-    for r in roleName:
-        finalRole += r
-        finalRole += "-"
+    finalRole = ' '.join(roleName)
     await client.say(finalRole)
     server = client.get_server('493970833799249930')
     for role in server.roles:
