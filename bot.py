@@ -23,7 +23,7 @@ async def on_ready():
 
 @client.command()
 async def clubes():
-    server = client.get_server('426053657868501003')
+    server = client.get_server('493970833799249930')
     message = ''
     roles = []
     for role in server.roles:
@@ -39,7 +39,7 @@ async def clubes():
 @client.command(pass_context = True)
 async def inscrever(ctx, roleName):
     roles = []
-    server = ctx.message.server.id
+    server = client.get_server('493970833799249930')
     for role in server.roles:
         if role.name != 'Centro Acadêmico' and role.name != '@everyone' and role.name != 'Bot':
             roles.append(role.name)
