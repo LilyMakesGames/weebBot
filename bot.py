@@ -37,7 +37,7 @@ async def clubes():
     await client.say(embed = embed)
 
 @client.command(pass_context = True)
-async def inscrever(ctx, roleName):
+async def inscrever(ctx, *roleName):
     roles = []
     await client.say(roleName)
     server = client.get_server('493970833799249930')
