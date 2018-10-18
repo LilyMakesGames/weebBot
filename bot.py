@@ -42,13 +42,14 @@ async def inscrever(ctx, *roleName):
     finalRole = ""
     for r in roleName:
         finalRole += r
+        finalRole += " "
     await client.say(finalRole)
     server = client.get_server('493970833799249930')
     for role in server.roles:
         if role.name != 'Centro Acadêmico' and role.name != '@everyone' and role.name != 'Bot':
             roles.append(role.name)
     for roleN in roles:
-        if roleName == roleN:
+        if finalRole == roleN:
             role = discord.utils.get(server.roles, name = roleN)
             await client.add_roles(ctx.message.author, role)
             embed = discord.Embed()
