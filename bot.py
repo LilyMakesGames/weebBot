@@ -42,7 +42,7 @@ async def inscrever(ctx, *roleName):
     finalRole = ""
     for r in roleName:
         finalRole += r
-        finalRole += " "
+        finalRole += "-"
     await client.say(finalRole)
     server = client.get_server('493970833799249930')
     for role in server.roles:
