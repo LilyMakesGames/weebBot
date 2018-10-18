@@ -39,6 +39,7 @@ async def clubes():
 @client.command(pass_context = True)
 async def inscrever(ctx, roleName):
     roles = []
+    await client.say(roleName)
     server = client.get_server('493970833799249930')
     for role in server.roles:
         if role.name != 'Centro Acadêmico' and role.name != '@everyone' and role.name != 'Bot':
@@ -48,7 +49,7 @@ async def inscrever(ctx, roleName):
             role = discord.utils.get(server.roles, name = roleN)
             await client.add_roles(ctx.message.author, role)
             embed = discord.Embed()
-            embed.description = 'You are now aa ' + roleN
+            embed.description = 'You are now a ' + roleN
             await client.say(embed = embed)
 
 @client.command(pass_context = True)
