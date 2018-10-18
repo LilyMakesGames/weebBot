@@ -39,7 +39,10 @@ async def clubes():
 @client.command(pass_context = True)
 async def inscrever(ctx, *roleName):
     roles = []
-    await client.say(roleName)
+    finalRole = ""
+    for r in roleName:
+        finalRole += r
+    await client.say(finalRole)
     server = client.get_server('493970833799249930')
     for role in server.roles:
         if role.name != 'Centro Acadêmico' and role.name != '@everyone' and role.name != 'Bot':
