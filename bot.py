@@ -49,6 +49,7 @@ async def inscrever(ctx, *roleName):
         if role.name != 'Centro Acadêmico' and role.name != '@everyone' and role.name != 'Bot':
             roles.append(role.name)
     for roleN in roles:
+        await client.say(roleN)
         if finalRole == roleN:
             role = discord.utils.get(server.roles, name = roleN)
             await client.add_roles(ctx.message.author, role)
