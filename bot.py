@@ -57,7 +57,9 @@ async def sair(ctx, *roleName):
     finalRole = ' '.join(roleName)
     for roleN in ctx.message.author.roles:
         if finalRole == roleN.name:
-            await client.say("Your rights to be a " + roleN.name + " have been removed.")
+            embed = discord.Embed()
+            embed.description = "Your rights to be a " + roleN.name + " have been removed."
+            await client.say(embed = embed)
             await client.remove_roles(ctx.message.author, roleN)
 
 @client.command(pass_context = True)
