@@ -57,7 +57,8 @@ async def sair(ctx, *roleName):
     finalRole = ' '.join(roleName)
     for roleN in ctx.message.author.roles:
         if finalRole == roleN.name:
-            client.remove_roles(ctx.message.author, roleN)
+            await client.say("Your rights to be a " + roleN.name + " have been removed.")
+            await client.remove_roles(ctx.message.author, roleN)
 
 @client.command(pass_context = True)
 async def ajuda(ctx):
