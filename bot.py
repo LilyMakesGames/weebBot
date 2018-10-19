@@ -55,7 +55,7 @@ async def inscrever(ctx, *roleName):
 @client.command(pass_context = True)
 async def sair(ctx, *roleName):
     finalRole = ' '.join(roleName)
-    for roleN in ctx.author.roles:
+    for roleN in ctx.message.author.roles:
         if finalRole == roleN.name:
             client.removeroles(ctx.message.author, roleN)
 
