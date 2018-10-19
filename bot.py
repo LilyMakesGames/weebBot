@@ -53,6 +53,11 @@ async def inscrever(ctx, *roleName):
             await client.say(embed = embed)
 
 @client.command(pass_context = True)
+async def sair(ctx, *roleName):
+    finalRole = ' '.join(roleName)
+    await client.say(ctx.message.author.roles)
+
+@client.command(pass_context = True)
 async def ajuda(ctx):
     author = ctx.message.author
 
